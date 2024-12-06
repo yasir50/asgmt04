@@ -199,14 +199,14 @@ let exp25 = ((3 + 4) * (false || a--) && 5) || ("start" + 1 + "test" && 0);
 // (7 * 5 && 5) || ("start1test" && 0)
 // (35 && 5) || 0
 // 5 || 0
-// 5 
+// 5
 console.log(exp25)
-let exp26 = ("hello" && 3 * 2 + (a++ + 1)) || (false + true) * "result" + "end"; 
+let exp26 = ("hello" && 3 * 2 + (a++ + 1)) || (false + true) * "result" + "end";
 // ("hello" && 3*2 + 6) || 1 * "result" + "end";
 // ("hello" && 12) || 1 * "result" + "end";
 // 12 || NaN + "end";
 // 12 ||"NaNend";
-// 12 
+// 12
 console.log(exp26) // different answers
 
 let exp27 = (3 * "test" + (true + 2) && (false || "value")) || "start" + a++;
@@ -234,15 +234,82 @@ let exp30 = (true + 3) * "test" || (1 * 5 && false + "value" + "end") || a--;
 // 4 * "test" || "0valueend" || a--
 // NaN|| "0valueend" || 5
 // "0valueend"
-console.log(exp30) 
+console.log(exp30)
+
+let exp31 = 3 + "end" || (2 * "test" && ++a + true) || "start" + 1;
+// 3 + "end" || (NaN && 7) || "start" + 1;
+// 3 + "end" || NAN || "start" + 1;
+// "3end" || NAN || "start1";
+// "3end"
+console.log(exp31);
+
+let exp32 = (0 + 3) * (true + false) || (5 * "hello" + 2 && false + "test");
+// 3 * (1) || (NaN + 2 && "0test")
+// 3 || (NaN2 && "0test")
+// 3 || NaN2
+// 3
+console.log(exp32);
+
+let exp33 = (2 + 3 && "end" + a++) || ((false + "test") * 4 && 5);
+// (5 && "end5") || ("0test" * 4 && 5)
+// "end5" || (NaN
+// "end5"
+console.log(exp33);
+
+let exp34 = "hello" + 4 * (false + a--) || (3 && "start" + 1) || true + "test"; //differnet answers
+// "hello" + 4 * 5 || "start1" || "1test"
+// "hello20" || "start1" || "1test"
+// "hello20"
+console.log(exp34)
+
+let exp35 = ("start" && (a-- || "test") * 4 + 5 && false + "end") || 2;
+// ("start" && 5 * 4 + 5 && false + "end") || 2
+// ("start" &&  25 && false + "end") || 2
+// "0end"
+console.log(exp35)
+
+let exp36 = (1 + "value" && ++a + 2) || ((3 + "result") * true && 4);
+/// ("1value" && 8) || 3result" * true && 4)
+/// 8 || NaN && 4
+/// 8 || NaN
+/// 8
+console.log(exp36)
+
+let exp37 = ("hello" && 2 + "test") || (++a + 3 && true + "value" + 1);
+// "2test" || 9 && "1value1"
+// "2test" || "1value1"
+// "2test" 
+console.log(exp37)
+
+let exp38 = (5 * (a-- || "test") && 6 * "result") || 2 + "end";
+// 5 * 5 && NaN || 2end
+// 25 && NaN || 2end
+//  NaN || 2end
+//  2end
+console.log(exp38)
 
 
-//                  &&
-//    - Returns the second value if the first is truthy.
-//    - Stops at the first falsy value.
-//                  ||
-//    - Returns the first truthy value it finds.
-//    - Stops at the first truthy value.
-//
-// The && operator has a higher precedence than the || operator,
-// meaning the && operator is executed before the ||
+let exp39 = ("start" && (false + 1) * 2) || (3 + 4 * "hello" + 5 && 0);
+//  ("start" && 1 * 2) || (NaN && 0)
+//  2 || 0
+//  2 
+console.log(exp39)
+
+let exp40 = (false || "test") * 5 || 6 + (a-- && "result") * 4;
+// "test" * 5 || 6 + "result" * 4
+// NaN || 6 + NaN
+// NaN || NaN
+// NaN
+console.log(exp40)
+
+// //                  &&
+// //    - Returns the second value if the first is truthy.
+// //    - Stops at the first falsy value.
+// //                  ||
+// //    - Returns the first truthy value it finds.
+// //    - Stops at the first truthy value.
+// //
+// // The && operator has a higher precedence than the || operator,
+// // meaning the && operator is executed before the ||
+
+ 
